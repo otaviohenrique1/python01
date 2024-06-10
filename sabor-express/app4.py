@@ -22,40 +22,43 @@ def finalizar_app():
   # os.system('clear') # no mac
   print('Finalizando o programa\n')
 
-def opcao_invalida():
-  print("Opção inválida\n")
-  input('Digite uma tecla para voltar ao menu principal ')
-  main()
-
-def cadastrar_novo_restaurante():
-  pass
-
 def escolher_opcao():
-  try:
-    opcao_escolhida = int(input('Escolha uma opção\n'))
-    # print(f'Você escolheu a opção {opcao_escolhida}')
-    # print('Você escolheu a opção', opcao_escolhida)
-    # print(opcao_escolhida == 1)
-    # print(type(opcao_escolhida))
-    # print(type(1))
+  opcao_escolhida = int(input('Escolha uma opção\n'))
+  # print(f'Você escolheu a opção {opcao_escolhida}')
+  # print('Você escolheu a opção', opcao_escolhida)
+  # print(opcao_escolhida == 1)
+  # print(type(opcao_escolhida))
+  # print(type(1))
 
-    if opcao_escolhida == 1:
-      # print('Cadastrar restaurante')
-      cadastrar_novo_restaurante()
-    elif opcao_escolhida == 2:
+  if opcao_escolhida == 1:
+    print('Cadastrar restaurante')
+  elif opcao_escolhida == 2:
+    print('Listar restaurantes')
+  elif opcao_escolhida == 3:
+    print('Ativar restaurantes')
+  elif opcao_escolhida == 4:
+    # print('Encerrando o programa')
+    finalizar_app()
+  else:
+    print('Encerrando o programa')
+
+def escolher_opcao2():
+  opcao_escolhida = int(input('Escolha uma opção\n'))
+
+  match opcao_escolhida:
+    case 1:
+      print('Adicionar restaurante')
+    case 2:
       print('Listar restaurantes')
-    elif opcao_escolhida == 3:
-      print('Ativar restaurantes')
-    elif opcao_escolhida == 4:
-      # print('Encerrando o programa')
+    case 3:
+      print('Ativar restaurante')
+    case 4:
       finalizar_app()
-    else:
-      opcao_invalida()
-  except:
-    opcao_invalida()
+        # print('Finalizar app')
+    case _:
+      print('Opção inválida!')
 
 def main():
-  os.system('cls')
   exibir_nome_do_programa()
   exibir_opcoes()
   escolher_opcao()
